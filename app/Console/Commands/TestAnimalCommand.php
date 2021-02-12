@@ -47,9 +47,11 @@ class TestAnimalCommand extends Command
         $duck = new Duck("Omega Lulu");
         $duck->speak();
         $duck->fly();
+        $duck->getPosition();
 
         $woodpecker = new Woodpecker;
         $woodpecker->speak();
         $woodpecker->fly();
+        $woodpecker->getPosition();
     }
 }

@@ -16,7 +16,7 @@ class CreatOverallReportView extends Migration
         DB::statement("
         CREATE VIEW views_overall_report AS
         (
-            SELECT `ip`, COUNT(*) FROM `views` GROUP BY `ip`
+            SELECT ip, COUNT(*) FROM views WHERE created_at >= '2021-02-12' AND updated_at >= '2021-02-12' GROUP BY ip ORDER BY COUNT
         )
         ");
     }

@@ -2,14 +2,14 @@
 
 namespace App\Classes;
 use App\AbstractClass\Animal;
-use App\Services\Shopify\Product\GetProduct;
-use App\Contracts\Animal\FlyInterface;
+use App\Traits\FlyTrait;
 
 /**
  *
  */
-class Duck extends Animal implements FlyInterface
+class Duck extends Animal
 {
+    use FlyTrait;
     protected $_name;
 
     public function __construct($name)
@@ -19,9 +19,5 @@ class Duck extends Animal implements FlyInterface
 
     public function speak() {
         echo "I'm ".$this->_name." quack quack\n";
-    }
-
-    public function fly() {
-        echo "fly normal\n";
     }
 }

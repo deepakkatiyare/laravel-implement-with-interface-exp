@@ -2,19 +2,16 @@
 
 namespace App\Classes;
 use App\AbstractClass\Animal;
-use App\Services\Shopify\Product\GetProduct;
-use App\Contracts\Animal\FlyInterface;
+use App\Traits\FlyTrait;
 
 /**
  *
  */
-class woodpecker extends Animal implements FlyInterface
+class woodpecker extends Animal
 {
+    use FlyTrait;
+
     public function speak() {
         echo "knock knock\n";
-    }
-
-    public function fly() {
-        echo "fly normal\n";
     }
 }

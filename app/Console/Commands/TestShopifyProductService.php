@@ -32,7 +32,8 @@ class TestShopifyProductService extends Command
     public function __construct(GetProductInterface $getProduct)
     {
         parent::__construct();
-        $this->_getProduct = $getProduct;
+        app()->bind(GetProductInterface::class, GetWoocommerceProduct::class);
+        $this->_getProduct = app()->make(GetProductInterface::class);
     }
 
     /**
@@ -42,8 +43,6 @@ class TestShopifyProductService extends Command
      */
     public function handle()
     {
-        app()->bind(GetProductInterface::class, GetWoocommerceProduct::class);
-        $this->_getProduct = app()->make(GetProductInterface::class);
         $this->_getProduct->getData(1);
 
     }
